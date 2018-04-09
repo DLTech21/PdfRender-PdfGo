@@ -6,3 +6,4 @@ build
 /app/app.iml
 /pdfgo/pdfgo.iml
 /PdfRender-PdfGo.iml
+/pdfgo/bintray.gradle
