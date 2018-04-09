@@ -1,3 +1,8 @@
 build
 /PdfRenderPdfGo.iml
 /local.properties
+.gradle
+.idea
+/app/app.iml
+/pdfgo/pdfgo.iml
+/PdfRender-PdfGo.iml
