@@ -1,17 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
-
-
-
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-
-
+        minSdkVersion rootProject.ext.libMinSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName_pdfgo
     }
 
     buildTypes {
@@ -27,5 +23,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.github.barteksc:pdfium-android:1.8.2'
     compile 'com.blankj:utilcode:1.13.9'
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation "com.android.support:appcompat-v7:$supportVersion"
 }
+
+apply from: 'bintray.gradle'
