@@ -1,15 +1,16 @@
-package com.dl.pdfgo;
+package io.github.dltech21.pdfgo;
 
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 
 import com.blankj.utilcode.util.FileUtils;
-import com.dl.pdfgo.model.PdfProgress;
-import com.dl.pdfgo.render.PdfRenderTask;
-import com.dl.pdfgo.render.PdfRenderThreadPool;
-import com.dl.pdfgo.task.XExecutor;
-import com.dl.pdfgo.utils.PdfConsumer;
+
+import io.github.dltech21.pdfgo.model.PdfProgress;
+import io.github.dltech21.pdfgo.render.PdfRenderTask;
+import io.github.dltech21.pdfgo.render.PdfRenderThreadPool;
+import io.github.dltech21.pdfgo.task.XExecutor;
+import io.github.dltech21.pdfgo.utils.PdfConsumer;
 
 import java.io.File;
 import java.util.ArrayList;

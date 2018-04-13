@@ -7,13 +7,18 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.dl.pdfgo.utils.PdfConsumer;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
+
+import io.github.dltech21.pdfgo.utils.PdfConsumer;
 
 
 /**
@@ -36,15 +41,25 @@ public class PdfListActivity extends Activity {
         } catch (Exception e) {
 
         }
+        AndPermission.with(this)
+                .permission(Permission.WRITE_EXTERNAL_STORAGE)
+                .onGranted(new Action() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        mPdfListAdapter = new PdfListAdapter(PdfListActivity.this, pdfConsumer.getPageCount(), pdfConsumer);
+                        rvPhoto.setAdapter(mPdfListAdapter);
+                    }
+                }).onDenied(new Action() {
+            @Override
+            public void onAction(List<String> permissions) {
+            }
+        }).start();
 
     }
 
     public void initView() {
         rvPhoto = (RecyclerView) findViewById(R.id.rv_photo);
         rvPhoto.setLayoutManager(new GridLayoutManager(this, 3));
-        mPdfListAdapter = new PdfListAdapter(this, pdfConsumer.getPageCount(), pdfConsumer);
-        rvPhoto.setAdapter(mPdfListAdapter);
-
     }
 
 

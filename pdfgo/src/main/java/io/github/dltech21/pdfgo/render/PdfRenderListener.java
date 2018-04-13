@@ -1,6 +1,4 @@
-package com.dl.pdfgo.render;
-
-import com.dl.pdfgo.render.RenderProgressListener;
+package io.github.dltech21.pdfgo.render;
 
 import java.io.File;
 

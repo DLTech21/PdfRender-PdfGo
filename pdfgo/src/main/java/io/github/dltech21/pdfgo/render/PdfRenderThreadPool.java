@@ -1,8 +1,8 @@
-package com.dl.pdfgo.render;
+package io.github.dltech21.pdfgo.render;
 
 
-import com.dl.pdfgo.task.PriorityBlockingQueue;
-import com.dl.pdfgo.task.XExecutor;
+import io.github.dltech21.pdfgo.task.PriorityBlockingQueue;
+import io.github.dltech21.pdfgo.task.XExecutor;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;

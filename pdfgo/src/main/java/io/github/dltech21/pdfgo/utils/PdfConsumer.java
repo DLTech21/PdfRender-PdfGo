@@ -1,5 +1,5 @@
 
-package com.dl.pdfgo.utils;
+package io.github.dltech21.pdfgo.utils;
 
 import android.content.Context;
 import android.graphics.Point;

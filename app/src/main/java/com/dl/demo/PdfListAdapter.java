@@ -7,15 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.dl.pdfgo.PdfGo;
-import com.dl.pdfgo.model.PdfProgress;
-import com.dl.pdfgo.render.PdfRenderListener;
-import com.dl.pdfgo.render.PdfRenderTask;
-import com.dl.pdfgo.utils.EncryptUtils;
-import com.dl.pdfgo.utils.PdfConsumer;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 import java.io.File;
+
+import io.github.dltech21.pdfgo.PdfGo;
+import io.github.dltech21.pdfgo.model.PdfProgress;
+import io.github.dltech21.pdfgo.render.PdfRenderListener;
+import io.github.dltech21.pdfgo.render.PdfRenderTask;
+import io.github.dltech21.pdfgo.utils.EncryptUtils;
+import io.github.dltech21.pdfgo.utils.PdfConsumer;
 
 
 /**
@@ -38,6 +39,7 @@ public class PdfListAdapter extends RecyclerView.Adapter<PdfListAdapter.ViewHold
         options = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
+                .considerExifParams(true)
                 .build();
     }
 

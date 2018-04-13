@@ -1,8 +1,8 @@
-package com.dl.pdfgo.model;
+package io.github.dltech21.pdfgo.model;
 
 import android.view.View;
 
-import com.dl.pdfgo.utils.PdfConsumer;
+import io.github.dltech21.pdfgo.utils.PdfConsumer;
 
 import java.io.Serializable;
 

@@ -1,7 +1,7 @@
-package com.dl.pdfgo.utils;
+package io.github.dltech21.pdfgo.utils;
 
 import com.blankj.utilcode.util.ObjectUtils;
-import com.dl.pdfgo.PdfGo;
+import io.github.dltech21.pdfgo.PdfGo;
 
 /**
  * Created by donal on 2018/4/9.

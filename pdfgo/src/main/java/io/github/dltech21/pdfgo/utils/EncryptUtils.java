@@ -1,4 +1,4 @@
-package com.dl.pdfgo.utils;
+package io.github.dltech21.pdfgo.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

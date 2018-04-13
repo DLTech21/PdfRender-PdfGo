@@ -1,13 +1,13 @@
-package com.dl.pdfgo.render;
+package io.github.dltech21.pdfgo.render;
 
 import android.graphics.Bitmap;
 
 import com.blankj.utilcode.util.FileUtils;
-import com.dl.pdfgo.PdfGo;
-import com.dl.pdfgo.utils.PdfConsumer;
-import com.dl.pdfgo.task.PriorityRunnable;
-import com.dl.pdfgo.model.PdfProgress;
-import com.dl.pdfgo.utils.PdfUtils;
+import io.github.dltech21.pdfgo.PdfGo;
+import io.github.dltech21.pdfgo.utils.PdfConsumer;
+import io.github.dltech21.pdfgo.task.PriorityRunnable;
+import io.github.dltech21.pdfgo.model.PdfProgress;
+import io.github.dltech21.pdfgo.utils.PdfUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

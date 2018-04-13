@@ -1,6 +1,6 @@
-package com.dl.pdfgo.render;
+package io.github.dltech21.pdfgo.render;
 
-import com.dl.pdfgo.model.PdfProgress;
+import io.github.dltech21.pdfgo.model.PdfProgress;
 
 /**
  * Created by donal on 2018/3/12.

@@ -1,4 +1,4 @@
-package com.dl.pdfgo.model;
+package io.github.dltech21.pdfgo.model;
 
 /**
  * Created by donal
