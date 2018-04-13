@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.aaron.gradle.bintray-release'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
 
     defaultConfig {
-        minSdkVersion rootProject.ext.appMinSdkVersion
+        minSdkVersion rootProject.ext.libMinSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -28,4 +28,13 @@ dependencies {
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile 'com.blankj:utilcode:1.13.10'
     compile 'com.github.barteksc:pdfium-android:1.8.2'
+}
+
+publish {
+    userOrg = 'dltech21'
+    groupId = 'io.github.dltech21'
+    artifactId = 'pdfgo'
+    publishVersion = '1.0.0'
+    desc = 'Pdf multiple render page for Android'
+    website = 'https://github.com/DLTech21/PdfRender-PdfGo'
 }
