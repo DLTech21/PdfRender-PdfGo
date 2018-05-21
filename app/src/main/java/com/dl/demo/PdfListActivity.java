@@ -1,23 +1,16 @@
 package com.dl.demo;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.List;
 
+import io.github.dltech21.dlfilepicker.DLFilePicker;
+import io.github.dltech21.dlfilepicker.DLFilePickerSelectListener;
+import io.github.dltech21.dlfilepicker.model.FileItem;
 import io.github.dltech21.pdfgo.utils.PdfConsumer;
 
 
@@ -34,64 +27,26 @@ public class PdfListActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf_list);
-        try {
-            File file = fileFromAsset(this, "sample.pdf");
-            pdfConsumer = new PdfConsumer(this, file.getAbsolutePath());
-            initView();
-        } catch (Exception e) {
+        initView();
 
-        }
-        AndPermission.with(this)
-                .permission(Permission.WRITE_EXTERNAL_STORAGE)
-                .onGranted(new Action() {
-                    @Override
-                    public void onAction(List<String> permissions) {
-                        mPdfListAdapter = new PdfListAdapter(PdfListActivity.this, pdfConsumer.getPageCount(), pdfConsumer);
-                        rvPhoto.setAdapter(mPdfListAdapter);
-                    }
-                }).onDenied(new Action() {
+        DLFilePicker.getInstance().selectFile(this, new String[]{".pdf"}, new DLFilePickerSelectListener() {
             @Override
-            public void onAction(List<String> permissions) {
+            public void onSuccess(List<FileItem> files) {
+                try {
+                    pdfConsumer = new PdfConsumer(PdfListActivity.this, files.get(0).getFilePath());
+                    mPdfListAdapter = new PdfListAdapter(PdfListActivity.this, pdfConsumer.getPageCount(), pdfConsumer);
+                    rvPhoto.setAdapter(mPdfListAdapter);
+                } catch (Exception e) {
+
+                }
             }
-        }).start();
+        });
 
     }
 
     public void initView() {
         rvPhoto = (RecyclerView) findViewById(R.id.rv_photo);
         rvPhoto.setLayoutManager(new GridLayoutManager(this, 3));
-    }
-
-
-    private File fileFromAsset(Context context, String assetName) throws IOException {
-        File outFile = new File(context.getCacheDir(), "pdfview.pdf");
-        if (assetName.contains("/")) {
-            outFile.getParentFile().mkdirs();
-        }
-        copy(context.getAssets().open(assetName), outFile);
-        return outFile;
-    }
-
-    private void copy(InputStream inputStream, File output) throws IOException {
-        OutputStream outputStream = null;
-        try {
-            outputStream = new FileOutputStream(output);
-            int read = 0;
-            byte[] bytes = new byte[1024];
-            while ((read = inputStream.read(bytes)) != -1) {
-                outputStream.write(bytes, 0, read);
-            }
-        } finally {
-            try {
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-            } finally {
-                if (outputStream != null) {
-                    outputStream.close();
-                }
-            }
-        }
     }
 
 
